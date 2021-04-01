@@ -835,7 +835,7 @@ function slideleft10(){
 
 window.onload = function () {
     
-    menuBtn.addEventListener('swiped-left', function (e) {
+    burger1.addEventListener('swiped-left', function (e) {
         burger1.classList.remove('open');
         menuBtn.classList.remove('open');
         menuBtn3.classList.remove('open');
