@@ -841,4 +841,10 @@ window.onload = function () {
         menuBtn3.classList.remove('open');
     });
 
+    menuBtn.addEventListener('swiped-left', function (e) {
+        burger1.classList.remove('open');
+        menuBtn.classList.remove('open');
+        menuBtn3.classList.remove('open');
+    });
+
 }
