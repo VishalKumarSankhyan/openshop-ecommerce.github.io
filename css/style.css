@@ -133,6 +133,7 @@ p{
     background: white;
     font-size: 20px;
     border-left: 0px solid;
+    border: none;
 }
 
 .search1:hover{
@@ -219,6 +220,7 @@ p{
 }
 .comment-2{
     border-right: 0px solid;
+    border: none;
 }
 
 /*burger start*/
