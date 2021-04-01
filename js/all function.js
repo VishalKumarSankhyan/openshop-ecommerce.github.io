@@ -678,36 +678,167 @@ function slideleft10(){
 
 }
 
+ 
 
+/*--function to detect left right up down swipe in---*/
+ 
+(function (window, document) {
 
-// Add remove image using javascript
+    'use strict';
 
-var res = window.matchMedia("(max-width: 992px)")
+    // patch CustomEvent to allow constructor creation (IE/Chrome)
+    if (typeof window.CustomEvent !== 'function') {
 
-if (res.matches) { 
-    for (let index1 = 0; index1 <4; index1++) {
-        carousel_des_images = document.querySelector('.dcp');
-        carousel_des_images.remove();
-    }// remove desktop image element
+        window.CustomEvent = function (event, params) {
 
-    for (let jndex1 = 0; jndex1 <10; jndex1++) {
-        product_des_images = document.querySelector('.product-show-slider-main-center');
-        product_des_images.remove();
-    }// remove desktop image element
+            params = params || { bubbles: false, cancelable: false, detail: undefined };
+
+            var evt = document.createEvent('CustomEvent');
+            evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+            return evt;
+        };
+
+        window.CustomEvent.prototype = window.Event.prototype;
+    }
+
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
+    document.addEventListener('touchend', handleTouchEnd, false);
+
+    var xDown = null;
+    var yDown = null;
+    var xDiff = null;
+    var yDiff = null;
+    var timeDown = null;
+    var startEl = null;
+
+    /**
+     * Fires swiped event if swipe detected on touchend
+     * @param {object} e - browser event object
+     * @returns {void}
+     */
+    function handleTouchEnd(e) {
+
+        // if the user released on a different target, cancel!
+        if (startEl !== e.target) return;
+
+        var swipeThreshold = parseInt(getNearestAttribute(startEl, 'data-swipe-threshold', '20'), 10); // default 20px
+        var swipeTimeout = parseInt(getNearestAttribute(startEl, 'data-swipe-timeout', '500'), 10);    // default 500ms
+        var timeDiff = Date.now() - timeDown;
+        var eventType = '';
+        var changedTouches = e.changedTouches || e.touches || [];
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) { // most significant
+            if (Math.abs(xDiff) > swipeThreshold && timeDiff < swipeTimeout) {
+                if (xDiff > 0) {
+                    eventType = 'swiped-left';
+                }
+                else {
+                    eventType = 'swiped-right';
+                }
+            }
+        }
+        else if (Math.abs(yDiff) > swipeThreshold && timeDiff < swipeTimeout) {
+            if (yDiff > 0) {
+                eventType = 'swiped-up';
+            }
+            else {
+                eventType = 'swiped-down';
+            }
+        }
+
+        if (eventType !== '') {
+
+            var eventData = {
+                dir: eventType.replace(/swiped-/, ''),
+                xStart: parseInt(xDown, 10),
+                xEnd: parseInt((changedTouches[0] || {}).clientX || -1, 10),
+                yStart: parseInt(yDown, 10),
+                yEnd: parseInt((changedTouches[0] || {}).clientY || -1, 10)
+            };
+
+            // fire `swiped` event event on the element that started the swipe
+            startEl.dispatchEvent(new CustomEvent('swiped', { bubbles: true, cancelable: true, detail: eventData }));
+
+            // fire `swiped-dir` event on the element that started the swipe
+            startEl.dispatchEvent(new CustomEvent(eventType, { bubbles: true, cancelable: true, detail: eventData }));
+        }
+
+        // reset values
+        xDown = null;
+        yDown = null;
+        timeDown = null;
+    }
+
+    /**
+     * Records current location on touchstart event
+     * @param {object} e - browser event object
+     * @returns {void}
+     */
+    function handleTouchStart(e) {
+
+        // if the element has data-swipe-ignore="true" we stop listening for swipe events
+        if (e.target.getAttribute('data-swipe-ignore') === 'true') return;
+
+        startEl = e.target;
+
+        timeDown = Date.now();
+        xDown = e.touches[0].clientX;
+        yDown = e.touches[0].clientY;
+        xDiff = 0;
+        yDiff = 0;
+    }
+
+    /**
+     * Records location diff in px on touchmove event
+     * @param {object} e - browser event object
+     * @returns {void}
+     */
+    function handleTouchMove(e) {
+
+        if (!xDown || !yDown) return;
+
+        var xUp = e.touches[0].clientX;
+        var yUp = e.touches[0].clientY;
+
+        xDiff = xDown - xUp;
+        yDiff = yDown - yUp;
+    }
+
+    /**
+     * Gets attribute off HTML element or nearest parent
+     * @param {object} el - HTML element to retrieve attribute from
+     * @param {string} attributeName - name of the attribute
+     * @param {any} defaultValue - default value to return if no match found
+     * @returns {any} attribute value or defaultValue
+     */
+    function getNearestAttribute(el, attributeName, defaultValue) {
+
+        // walk up the dom tree looking for data-action and data-trigger
+        while (el && el !== document.documentElement) {
+
+            var attributeValue = el.getAttribute(attributeName);
+
+            if (attributeValue) {
+                return attributeValue;
+            }
+
+            el = el.parentNode;
+        }
+
+        return defaultValue;
+    }
+
+}(window, document));
+
+// swipe left to close menu
+
+window.onload = function () {
+    
+    menuBtn.addEventListener('swiped-left', function (e) {
+        burger1.classList.remove('open');
+        menuBtn.classList.remove('open');
+        menuBtn3.classList.remove('open');
+    });
 
 }
-else{
-    for (let index2 = 0; index2 <4; index2++) {
-        carousel_mo_images = document.querySelector('.mcp');
-        carousel_mo_images.remove();
-    }// remove desktop image element
-
-    for (let jndex2 = 0; jndex2 <10; jndex2++) {
-        product_mo_images = document.querySelector('.main-div-2');
-        product_mo_images.remove();
-    }// remove desktop image element
-  }
-
-
-
-  
