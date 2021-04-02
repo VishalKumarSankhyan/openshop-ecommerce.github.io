@@ -193,6 +193,13 @@ p{
     /*when hovering an item:*/
     background-color: #f7f7f7;
   }
+
+  .autocomplete-items div i{
+    margin-right: 10px;
+    color:#cac9c9;
+    font-size: inherit!important;
+  }
+
   .autocomplete-active {
     /*when navigating through the items using the arrow keys:*/
     background-color: DodgerBlue !important;
