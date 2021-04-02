@@ -177,8 +177,7 @@ p{
     right: 0;
     max-height: 176px!important;
     overflow:hidden;
-    border-left: 1px solid transparent;
-    border-right: 1px solid transparent;
+    
 }
   input[type=text] {
       background-color: #fff;
