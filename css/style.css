@@ -623,7 +623,9 @@ yt-img-shadow {
     transform: rotate(450deg);
     -webkit-transform: rotate(450deg);
 }
+
 /*
+
 ::-webkit-scrollbar{
     width: 5px;
     border-radius: 50px;
@@ -641,7 +643,24 @@ yt-img-shadow {
     background-color: #15c9f6;
     border-radius: 50px;
 }
+
 */
+
+/*hide scrollbar in scrollmenu start*/
+.scrollmenu{
+    overflow-y:scroll;
+}
+.scrollmenu::-webkit-scrollbar{
+    display:none;
+}
+
+.scrollmenu{
+    -ms-overflow-style:none;
+
+    scrollbar-width:none;
+
+}
+
 .scrollmenu a {
     display: inline-block;
     color: rgb(0, 0, 0);
@@ -650,6 +669,7 @@ yt-img-shadow {
     text-decoration: none;
 }
 
+/*hide scrollbar in scrollmenu end*/
 
 .new1{
     text-align: center;
