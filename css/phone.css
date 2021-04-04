@@ -216,14 +216,24 @@ Collection Media Query
     .l-navbar.open{
         transform: translate3d(0px, 0px, 0px);
     }
-    .l-navbar.open,.menu-btn{
+    .l-navbar.open{
         display: block!important;
     }
     .menu-btn_burger.open{
         display: block!important;
     }
     .menu-btn.open{
-        display: block!important;
+        display: block;
+        animation: fade_menu 1s;
+    }
+
+    @keyframes fade_menu{
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
     }
    
     .slide1{
