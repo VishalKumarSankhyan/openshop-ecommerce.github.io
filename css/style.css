@@ -220,9 +220,13 @@ p{
     display: none;
     fill: currentColor;  
     color: #cac9c9!important;
+    height: inherit!important;
 }
 .can1.open{
     display:block!important;
+}
+.can1:hover{
+    color: #0202025b!important;
 }
 .comment-2{
     border-right: 0px solid;
@@ -388,10 +392,11 @@ p{
     background: linear-gradient(to right ,#15c9f6 0% ,#15c9f6 0% , #15c9f6 100%);
 }
 .l-navbar-2{
-    position:relative;
-    height: 92vh;
+    position: relative;
+    height: 100vh;
     overflow-x: scroll;
     white-space: nowrap;
+    padding-bottom: 40px;
 }
   
 .nav-item2 p {
@@ -559,22 +564,20 @@ yt-img-shadow {
     
 }
 
-
 .menu-btn{
-    display: none!important;
+    display: none;
     position: fixed;
     bottom: 0px;
     right: 0px;
-    z-index: 9999;
-    height: 100%;
+    z-index:9999;
+    height: 100vh;
     width: 100%;
     border: none;
     color: #fff;
     background-color:rgba(0,0,0,0.6);
     padding: 10px;
     font-size: 18px;
-    cursor: pointer; 
-    
+    cursor: pointer;  
 }
 
 /*navbar end*/
@@ -1545,6 +1548,7 @@ p{
     color: white;
     
 }
+
 .w-1{
     margin-top: 10px;
 }
@@ -1952,6 +1956,40 @@ hide scroll bar but not functionality
     transition: transform .4s ease-in-out;
     transition: transform .4s ease-in-out,-webkit-transform .4s ease-in-out;
 }
+
+
+/*left right sroll stop animation start*/
+.product-show-slider-main-center2.left_scroll_stop{
+    animation: left_scroll_stop 1s;
+}
+@keyframes left_scroll_stop{
+
+    0%{
+        transform:translateX(-50px);
+    }
+
+    100%{
+        transform:translateX(0px);
+    }
+
+}
+
+.product-show-slider-main-center2.right_scroll_stop{
+    animation: right_scroll_stop 1s;
+}
+@keyframes right_scroll_stop{
+
+    0%{
+        transform:translateX(-800px);
+    }
+
+    100%{
+        transform:translateX(-750px);
+    }
+
+}
+/*left right sroll stop animation end*/
+
 .div_1st{
     margin-left: 40px!important;
 }
