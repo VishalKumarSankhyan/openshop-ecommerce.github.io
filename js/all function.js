@@ -98,6 +98,7 @@ burger.addEventListener('click', () => {
     menuBtn1.classList.add('open');
     menuBtn2.classList.add('open');
     menuBtn3.classList.add('open');
+
 });
 // close nav burger
 burger1.addEventListener('click', () => {
@@ -147,7 +148,6 @@ function scrollFuncion() {
         menun5.classList.add('open');
         menun6.classList.add('open');
         menun8.classList.add('open');
-
     }
     else {
         mybutton.style.display = "none";
@@ -158,7 +158,6 @@ function scrollFuncion() {
         menun5.classList.remove('open');
         menun6.classList.remove('open');
         menun8.classList.remove('open');
-
     }
 }
 //top scroll start
@@ -311,7 +310,7 @@ drop2.addEventListener('mouseout', function () {
 
 
 // drop down menu hover end
-
+/*
 //product slider
 $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
     var next = $(this).next();
@@ -330,6 +329,8 @@ $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
 });
 //product slider
 
+*/
+
 slide_btn1 = document.querySelector('.slide-left');
 slide_btn2 = document.querySelector('.slide-right');
 
@@ -347,7 +348,7 @@ var maxwidth11 = $(getslide1).width();
 var width_1 = $(product_slide_width).width();
 console.log(width_1);
 
-console.log(maxwidth11);*/
+console.log(maxwidth11);
 
 function getTranslate(){
     var style = window.getComputedStyle(getslide1);
@@ -355,7 +356,7 @@ function getTranslate(){
 
     console.log('translatex' ,matrix.m41);
 }
-
+*/
 
 
 /*1*/
@@ -364,11 +365,13 @@ function slideright1() {
     if (slidess1 == -750){
         slidess1 = -750;
         getslide1.style.transform = "translateX(" + slidess1 + "px)";
+        getslide1.classList.add('right_scroll_stop');
         
     }
     else{
         slidess1 = slidess1 - 375;
         getslide1.style.transform = "translateX(" + slidess1 + "px)";
+       
     }
     getTranslate()
 }
@@ -376,11 +379,13 @@ function slideright1() {
 function slideleft1() {
     if (slidess1 == 0) {
         getslide1.style.transform = "translateX(" + 0 + "px)";
+        getslide1.classList.add('left_scroll_stop');
     }
    
     else {
         slidess1 = slidess1 + 375;
         getslide1.style.transform = "translateX(" + slidess1 + "px)";
+        
     }
     getTranslate()
 }
@@ -394,7 +399,7 @@ function slideright2() {
     if (slidess2 == -750){
         slidess2 = -750;
         getslide2.style.transform = "translateX(" + slidess2 + "px)";
-        
+        getslide2.classList.add('right_scroll_stop');
     }
     else{
         slidess2 = slidess2 - 375;
@@ -405,6 +410,7 @@ function slideright2() {
 function slideleft2() {
     if (slidess2 == 0) {
         getslide2.style.transform = "translateX(" + 0 + "px)";
+        getslide2.classList.add('left_scroll_stop');
     }
    
     else {
@@ -425,6 +431,7 @@ function slideright3(){
     if (slidess3 == -750){
         slidess3 = -750;
         getslide3.style.transform = "translateX(" + slidess3 + "px)";
+        getslide3.classList.add('right_scroll_stop');
         
     }
     else{
@@ -437,6 +444,7 @@ function slideright3(){
 function slideleft3(){
     if (slidess3 == 0) {
         getslide3.style.transform = "translateX(" + 0 + "px)";
+        getslide3.classList.add('left_scroll_stop');
     }
    
     else {
@@ -457,6 +465,7 @@ function slideright4(){
     if (slidess4 == -750){
         slidess4 = -750;
         getslide4.style.transform = "translateX(" + slidess4 + "px)";
+        getslide4.classList.add('right_scroll_stop');
         
     }
     else{
@@ -489,6 +498,7 @@ function slideright5(){
     if (slidess5 == -750){
         slidess5 = -750;
         getslide5.style.transform = "translateX(" + slidess5 + "px)";
+        getslide5.classList.add('right_scroll_stop');
         
     }
     else{
@@ -523,6 +533,7 @@ function slideright6(){
     if (slidess6 == -750){
         slidess6 = -750;
         getslide6.style.transform = "translateX(" + slidess6 + "px)";
+        getslide6.classList.add('right_scroll_stop');
         
     }
     else{
@@ -535,6 +546,7 @@ function slideright6(){
 function slideleft6(){
     if (slidess6 == 0) {
         getslide6.style.transform = "translateX(" + 0 + "px)";
+        getslide6.classList.add('left_scroll_stop');
     }
    
     else {
@@ -557,6 +569,7 @@ function slideright7(){
     if (slidess7 == -750){
         slidess7 = -750;
         getslide7.style.transform = "translateX(" + slidess7 + "px)";
+        getslide7.classList.add('right_scroll_stop');
         
     }
     else{
@@ -569,6 +582,7 @@ function slideright7(){
 function slideleft7(){
     if (slidess7 == 0) {
         getslide7.style.transform = "translateX(" + 0 + "px)";
+        getslide7.classList.add('left_scroll_stop');
     }
    
     else {
@@ -591,6 +605,7 @@ function slideright8(){
     if (slidess8 == -750){
         slidess8 = -750;
         getslide8.style.transform = "translateX(" + slidess8 + "px)";
+        getslide8.classList.add('right_scroll_stop');
         
     }
     else{
@@ -603,6 +618,7 @@ function slideright8(){
 function slideleft8(){
     if (slidess8 == 0) {
         getslide8.style.transform = "translateX(" + 0 + "px)";
+        getslide8.classList.add('left_scroll_stop');
     }
    
     else {
@@ -624,6 +640,7 @@ function slideright9(){
     if (slidess9 == -750){
         slidess9 = -750;
         getslide9.style.transform = "translateX(" + slidess9 + "px)";
+        getslide9.classList.add('right_scroll_stop');
         
     }
     else{
@@ -636,6 +653,7 @@ function slideright9(){
 function slideleft9(){
     if (slidess9 == 0) {
         getslide9.style.transform = "translateX(" + 0 + "px)";
+        getslide9.classList.add('left_scroll_stop');
     }
    
     else {
@@ -657,6 +675,7 @@ function slideright10(){
     if (slidess10 == -750){
         slidess10 = -750;
         getslide10.style.transform = "translateX(" + slidess10 + "px)";
+        getslide10.classList.add('right_scroll_stop');
         
     }
     else{
@@ -669,6 +688,7 @@ function slideright10(){
 function slideleft10(){
     if (slidess10 == 0) {
         getslide10.style.transform = "translateX(" + 0 + "px)";
+        getslide10.classList.add('left_scroll_stop');
     }
    
     else {
