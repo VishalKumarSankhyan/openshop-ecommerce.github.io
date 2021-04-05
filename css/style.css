@@ -590,7 +590,7 @@ yt-img-shadow {
 
 .menu-btn.fade_show{
     display: block;
-    animation: fade_menu_ex 0.8s;
+    animation: fade_menu_ex 1s;
 }
 @keyframes fade_menu_ex{
     0%{
