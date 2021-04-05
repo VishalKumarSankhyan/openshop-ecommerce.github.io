@@ -201,8 +201,8 @@ function autocomplete(inp, arr) {
         function scroll_ch_Funcion() {
           if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
               if (device_width_ch.matches) {
-              a.style.borderLeft="48px solid transparent";
-              a.style.borderRight="37px solid transparent";
+              a.style.marginLeft="48px";
+              a.style.marginRight="37px";
 
 
               mybutton.style.display = "block";
@@ -220,8 +220,9 @@ function autocomplete(inp, arr) {
           }
 
           else{
-            a.style.borderLeft="0px solid transparent";
-            a.style.borderRight="0px solid transparent";
+
+            a.style.marginLeft="0px";
+            a.style.marginRight="0px";
 
 
             mybutton.style.display = "none";
