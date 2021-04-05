@@ -154,6 +154,8 @@ var suggestion = ["Anchor",
 
 autocomplete(document.getElementById("myInput"), suggestion);
 
+var device_width_ch = window.matchMedia("(max-width: 992px)");
+
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
@@ -190,10 +192,56 @@ function autocomplete(inp, arr) {
           (or any other open lists of autocompleted values:*/
           closeAllLists();
         });
+
+        /*---change css with on scroll start---*/
+
+        window.onscroll = function () {scroll_ch_Funcion()};
+        scroll_ch_Funcion()
+
+        function scroll_ch_Funcion() {
+          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+              if (device_width_ch.matches) {
+              a.style.borderLeft="48px solid transparent";
+              a.style.borderRight="37px solid transparent";
+
+
+              mybutton.style.display = "block";
+              menun1.classList.add('open');
+              menun2.classList.add('open');
+              menun3.classList.add('open');
+              menun4.classList.add('open');
+              menun5.classList.add('open');
+              menun6.classList.add('open');
+              menun8.classList.add('open');
+            }
+            else{
+              return 0;
+            }
+          }
+
+          else{
+            a.style.borderLeft="0px solid transparent";
+            a.style.borderRight="0px solid transparent";
+
+
+            mybutton.style.display = "none";
+            menun1.classList.remove('open');
+            menun2.classList.remove('open');
+            menun3.classList.remove('open');
+            menun4.classList.remove('open');
+            menun5.classList.remove('open');
+            menun6.classList.remove('open');
+            menun8.classList.remove('open');
+
+          }
+        }
+        /*---change css with on scroll end---*/
+
         a.appendChild(b);
       }
     }
   });
+  
   /*execute a function presses a key on the keyboard:*/
   inp.addEventListener("keydown", function (e) {
     var x = document.getElementById(this.id + "autocomplete-list");
@@ -219,6 +267,7 @@ function autocomplete(inp, arr) {
       }
     }
   });
+
   function addActive(x) {
     /*a function to classify an item as "active":*/
     if (!x) return false;
