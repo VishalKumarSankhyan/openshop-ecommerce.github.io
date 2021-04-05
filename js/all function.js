@@ -113,7 +113,7 @@ burger1.addEventListener('click', () => {
 
     setTimeout(function(){
         menuBtn2.classList.remove('fade_show');
-    },1000)
+    },1100)
 
 });
 // close nav burger
@@ -128,7 +128,7 @@ burger2.addEventListener('click', () => {
 
     setTimeout(function(){
         menuBtn2.classList.remove('fade_show');
-    },1000)
+    },1100)
 
 });
 // small nav bar burger
@@ -882,7 +882,7 @@ window.onload = function () {
 
         setTimeout(function(){
             menuBtn2.classList.remove('fade_show');
-        },1000)
+        },1100)
     });
 
     menuBtn.addEventListener('swiped-left', function (e) {
@@ -895,7 +895,7 @@ window.onload = function () {
 
         setTimeout(function(){
             menuBtn2.classList.remove('fade_show');
-        },1000)
+        },1100)
     });
 
 }
