@@ -224,7 +224,7 @@ Collection Media Query
     }
     .menu-btn.open{
         display: block;
-        animation: fade_menu 1s;
+        animation: fade_menu 1.1s;
     }
 
     @keyframes fade_menu{
