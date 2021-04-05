@@ -91,6 +91,8 @@ menuBtn2 = document.querySelector('.menu-btn');
 
 menuBtn3 = document.querySelector('body');
 
+
+
 // side navbar burger
 burger.addEventListener('click', () => {
 
@@ -98,7 +100,6 @@ burger.addEventListener('click', () => {
     menuBtn1.classList.add('open');
     menuBtn2.classList.add('open');
     menuBtn3.classList.add('open');
-
 });
 // close nav burger
 burger1.addEventListener('click', () => {
@@ -108,6 +109,12 @@ burger1.addEventListener('click', () => {
     menuBtn2.classList.remove('open');
     menuBtn3.classList.remove('open');
 
+    menuBtn2.classList.add('fade_show');
+
+    setTimeout(function(){
+        menuBtn2.classList.remove('fade_show');
+    },800)
+
 });
 // close nav burger
 burger2.addEventListener('click', () => {
@@ -116,6 +123,12 @@ burger2.addEventListener('click', () => {
     menuBtn1.classList.remove('open');
     menuBtn2.classList.remove('open');
     menuBtn3.classList.remove('open');
+
+    menuBtn2.classList.add('fade_show');
+
+    setTimeout(function(){
+        menuBtn2.classList.remove('fade_show');
+    },800)
 
 });
 // small nav bar burger
@@ -136,6 +149,8 @@ menun5 = document.querySelector('.burger-1');
 menun6 = document.querySelector('.main-nav-1');
 menun7 = document.querySelector('body');
 menun8 = document.querySelector('.can1 svg');
+
+
 window.onscroll = function () { scrollFuncion() };
 
 function scrollFuncion() {
@@ -148,6 +163,7 @@ function scrollFuncion() {
         menun5.classList.add('open');
         menun6.classList.add('open');
         menun8.classList.add('open');
+
     }
     else {
         mybutton.style.display = "none";
@@ -158,6 +174,7 @@ function scrollFuncion() {
         menun5.classList.remove('open');
         menun6.classList.remove('open');
         menun8.classList.remove('open');
+    
     }
 }
 //top scroll start
@@ -859,12 +876,24 @@ window.onload = function () {
         burger1.classList.remove('open');
         menuBtn.classList.remove('open');
         menuBtn3.classList.remove('open');
+
+        menuBtn2.classList.add('fade_show');
+
+        setTimeout(function(){
+            menuBtn2.classList.remove('fade_show');
+        },800)
     });
 
     menuBtn.addEventListener('swiped-left', function (e) {
         burger1.classList.remove('open');
         menuBtn.classList.remove('open');
         menuBtn3.classList.remove('open');
+
+        menuBtn2.classList.add('fade_show');
+
+        setTimeout(function(){
+            menuBtn2.classList.remove('fade_show');
+        },800)
     });
 
 }
